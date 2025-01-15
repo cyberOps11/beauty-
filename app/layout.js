@@ -1,7 +1,15 @@
+'use client'; // Add this line at the top
 import '../styles/globals.css';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function RootLayout({ children }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <html lang="en">
       <body>
@@ -9,7 +17,12 @@ export default function RootLayout({ children }) {
           <header className="header">
             <h1>Bienvenue chez Harmonie Beauté</h1>
             <nav className="navbar">
-              <ul>
+              <div className={`burger-menu ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
+                <div className={`bar1 ${isOpen ? 'close' : ''}`}></div>
+                <div className={`bar2 ${isOpen ? 'close' : ''}`}></div>
+                <div className={`bar3 ${isOpen ? 'close' : ''}`}></div>
+              </div>
+              <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
                 <li><Link href="/">Accueil</Link></li>
                 <li><Link href="/services">Services</Link></li>
                 <li><Link href="/tarifs">Tarifs</Link></li>
