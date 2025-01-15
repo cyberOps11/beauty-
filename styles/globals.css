@@ -1,0 +1,149 @@
+/* Couleurs zen et reposantes */
+:root {
+  --beige-pastel: #e0dccb; /* Un peu plus foncé mais toujours pastel */
+  --beige-dark: #d2b48c;
+  --text-color: #333;
+  --background-color: #f5f5dc; /* Fond légèrement plus foncé */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  background-color: var(--beige-pastel);
+  padding: 20px 0;
+  text-align: center;
+  width: 100%; /* Utiliser toute la largeur de la page */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: var(--beige-dark);
+}
+
+.navbar {
+  background-color: var(--beige-dark);
+  padding: 10px 0;
+  width: 100%; /* Utiliser toute la largeur de la page */
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: var(--background-color);
+  font-weight: bold;
+}
+
+.home-section {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.home-section h2 {
+  color: var(--beige-dark);
+}
+
+.home-section-image {
+  max-width: 40%; /* Utiliser toute la largeur disponible */
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.section h2 {
+  color: var(--beige-dark);
+}
+
+.section-image {
+  max-width: 20%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-list {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 600px;
+  list-style: none; /* Enlever les puces */
+  padding-left: 0; /* Enlever l'indentation par défaut */
+}
+
+.service-list p {
+  margin: 10px 0;
+  padding-left: 0; /* Enlever l'indentation par défaut */
+  position: relative;
+  text-align: center;
+}
+
+.footer {
+  background-color: var(--beige-pastel);
+  padding: 20px 0;
+  text-align: center;
+  width: 78%; /* Utiliser toute la largeur de la page */
+  position: fixed;
+  bottom: 0;
+}
+
+.footer p {
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
+  }
+
+  .section-image {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 2em;
+  }
+
+  .section h2 {
+    font-size: 1.5em;
+  }
+
+  .footer p {
+    font-size: 0.8em;
+  }
+}
