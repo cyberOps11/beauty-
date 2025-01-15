@@ -3,9 +3,9 @@ import '../../styles/globals.css';
 
 const ServicesPage = () => {
   return (
-    <section className="section">
+    <section id="servicesSection" className="section">
       <h2>Nos Services</h2>
-      <img src="/images/services.jpg" alt="Services" className="section-image" />
+      <img src="/images/service.jpg" alt="Services" className="section-image" />
       <p>Découvrez nos différents services pour prendre soin de vous.</p>
       <div className="service-list">
         <p>Soins du visage</p>

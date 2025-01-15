@@ -1,6 +1,5 @@
-'use client'; // Add this line at the top
+'use client';
 import '../styles/globals.css';
-import Link from 'next/link';
 import { useState } from 'react';
 
 export default function RootLayout({ children }) {
@@ -8,6 +7,14 @@ export default function RootLayout({ children }) {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false); // Fermer le menu après le scroll
   };
 
   return (
@@ -18,20 +25,22 @@ export default function RootLayout({ children }) {
             <h1>Bienvenue chez Harmonie Beauté</h1>
             <nav className="navbar">
               <div className={`burger-menu ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
-                <div className={`bar1 ${isOpen ? 'close' : ''}`}></div>
-                <div className={`bar2 ${isOpen ? 'close' : ''}`}></div>
-                <div className={`bar3 ${isOpen ? 'close' : ''}`}></div>
+                <div className="bar1"></div>
+                <div className="bar2"></div>
+                <div className="bar3"></div>
               </div>
               <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-                <li><Link href="/">Accueil</Link></li>
-                <li><Link href="/services">Services</Link></li>
-                <li><Link href="/tarifs">Tarifs</Link></li>
-                <li><Link href="/contact">Contact</Link></li>
+                <li><a href="#homeSection" onClick={(e) => { e.preventDefault(); scrollToSection('homeSection'); }}>Accueil</a></li>
+                <li><a href="#servicesSection" onClick={(e) => { e.preventDefault(); scrollToSection('servicesSection'); }}>Services</a></li>
+                <li><a href="#tarifsSection" onClick={(e) => { e.preventDefault(); scrollToSection('tarifsSection'); }}>Tarifs</a></li>
+                <li><a href="#contactSection" onClick={(e) => { e.preventDefault(); scrollToSection('contactSection'); }}>Contact</a></li>
               </ul>
             </nav>
           </header>
-          {children}
-          <footer className="footer">
+          <main>
+            {children}
+          </main>
+          <footer id="contactSection" className="footer">
             <p>&copy; 2025 Harmonie Beauté. Tous droits réservés.</p>
           </footer>
         </div>
